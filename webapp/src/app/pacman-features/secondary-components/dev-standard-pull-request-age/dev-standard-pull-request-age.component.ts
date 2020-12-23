@@ -193,7 +193,7 @@ export class DevStandardPullRequestAgeComponent implements OnInit, OnDestroy, On
       const filter = {
          'resourceType': 'dgtldsgn-pullrequest',
          'daysRange': data.x_domain,
-         'tags.Application.keyword': this.appFilter
+         'tags.App.keyword': this.appFilter
       };
       const params = this.utilsService.makeFilterObj(filter);
       const apiTarget = {

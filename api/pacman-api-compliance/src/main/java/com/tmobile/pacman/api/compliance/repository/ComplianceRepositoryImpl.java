@@ -1178,7 +1178,7 @@ public class ComplianceRepositoryImpl implements ComplianceRepository, Constants
             }
         }
         requestBody
-                .append("}},\"aggs\":{\"NAME\":{\"terms\":{\"field\":\"tags.Application.keyword\",\"size\":1000}}}}");
+                .append("}},\"aggs\":{\"NAME\":{\"terms\":{\"field\":\"tags.App.keyword\",\"size\":1000}}}}");
         try {
             responseJson = PacHttpUtils.doHttpPost(urlToQueryBuffer.toString(), requestBody.toString());
         } catch (Exception e) {
@@ -1275,7 +1275,7 @@ if (ruleId.contains(TAGGIG_POLICY)) {
             
             body = body + ",{\"terms\":{\"targetType.keyword\":["+targetType+"]}}";
             if(application!=null){
-            	  body = body + ",{\"match\":{\"tags.Application.keyword\":\""+application+"\"}}";
+            	  body = body + ",{\"match\":{\"tags.App.keyword\":\""+application+"\"}}";
             }
             body = body + "]";
             if (!tagsList.isEmpty()) {
@@ -1288,7 +1288,7 @@ if (ruleId.contains(TAGGIG_POLICY)) {
                 body = body + "]";
                 body = body + ",\"minimum_should_match\":1";
             }
-            body = body + "}},\"aggs\":{\"NAME\":{\"terms\":{\"field\":\"tags.Environment.keyword\",\"size\":1000000}}}}";
+            body = body + "}},\"aggs\":{\"NAME\":{\"terms\":{\"field\":\"tags.Env.keyword\",\"size\":1000000}}}}";
             requestBody = new StringBuilder(body);
            
         }else{
@@ -1297,18 +1297,18 @@ if (ruleId.contains(TAGGIG_POLICY)) {
             requestBody = new StringBuilder(
                     "{\"size\":0,\"query\":{\"bool\":{\"must\":[{\"term\":{\"type.keyword\":{\"value\":\"issue\"}}},{\"term\":{\"ruleId.keyword\":{\"value\":\""
                             + ruleId
-                            + "\"}}},{\"term\":{\"tags.Application.keyword\":{\"value\":\""
+                            + "\"}}},{\"term\":{\"tags.App.keyword\":{\"value\":\""
                             + application
-                            + "\"}}}],\"should\":[{\"term\":{\"issueStatus.keyword\":{\"value\":\"open\"}}},{\"term\":{\"issueStatus.keyword\":{\"value\":\"exempted\"}}}],\"minimum_should_match\":1}},\"aggs\":{\"NAME\":{\"terms\":{\"field\":\"tags.Environment.keyword\",\"size\":1000}}}}");
+                            + "\"}}}],\"should\":[{\"term\":{\"issueStatus.keyword\":{\"value\":\"open\"}}},{\"term\":{\"issueStatus.keyword\":{\"value\":\"exempted\"}}}],\"minimum_should_match\":1}},\"aggs\":{\"NAME\":{\"terms\":{\"field\":\"tags.Env.keyword\",\"size\":1000}}}}");
         } else {
             requestBody = new StringBuilder(
                     "{\"size\":0,\"query\":{\"bool\":{\"must\":[{\"term\":{\"type.keyword\":{\"value\":\"issue\"}}},{\"term\":{\"ruleId.keyword\":{\"value\":\""
                             + ruleId
-                            + "\"}}},{\"term\":{\"tags.Application.keyword\":{\"value\":\""
+                            + "\"}}},{\"term\":{\"tags.App.keyword\":{\"value\":\""
                             + application
                             + "\"}}},{\"match_phrase_prefix\":{\"_all\":\""
                             + searchText
-                            + "\"}}],\"should\":[{\"term\":{\"issueStatus.keyword\":{\"value\":\"open\"}}},{\"term\":{\"issueStatus.keyword\":{\"value\":\"exempted\"}}}],\"minimum_should_match\":1}},\"aggs\":{\"NAME\":{\"terms\":{\"field\":\"tags.Environment.keyword\",\"size\":1000}}}}");
+                            + "\"}}],\"should\":[{\"term\":{\"issueStatus.keyword\":{\"value\":\"open\"}}},{\"term\":{\"issueStatus.keyword\":{\"value\":\"exempted\"}}}],\"minimum_should_match\":1}},\"aggs\":{\"NAME\":{\"terms\":{\"field\":\"tags.Env.keyword\",\"size\":1000}}}}");
         }
     }
         try {
@@ -1683,7 +1683,7 @@ if (ruleId.contains(TAGGIG_POLICY)) {
 		String targetTypesTerms = targetTypes.replaceAll("'", "\"");
 		body = body + ",{\"terms\":{\"targetType.keyword\":[" + targetTypesTerms + "]}}";
 		if (application != null) {
-			body = body + ",{\"match\":{\"tags.Application.keyword\":\"" + application + "\"}}";
+			body = body + ",{\"match\":{\"tags.App.keyword\":\"" + application + "\"}}";
 		}
 		body = body + "]";
 		if (!tagsList.isEmpty()) {
@@ -1781,7 +1781,7 @@ if (ruleId.contains(TAGGIG_POLICY)) {
         Map<String, Object> mustNotFilter = new HashMap<>();
         Map<String, Long> patchableassetsByApp = null;
         mustFilter.put(LATEST, true);
-        String aggsFilter = "tags.Application.keyword";
+        String aggsFilter = "tags.App.keyword";
         if (!Strings.isNullOrEmpty(application)) {
             mustFilter.put(TAGS_APPLICATION, application);
         }
@@ -1994,10 +1994,10 @@ if (ruleId.contains(TAGGIG_POLICY)) {
 					"{\"query\":{\"bool\":{\"must\":[{\"match\":{\"latest\":\"true\"}},{\"match\":{\"status.keyword\":\"running\"}}");
 		}
 		if (StringUtils.isNotBlank(application)) {
-			requestBody.append(",{\"match\":{\"tags.Application.keyword\":\"" + application + "\"}}");
+			requestBody.append(",{\"match\":{\"tags.App.keyword\":\"" + application + "\"}}");
 		}
 		if (StringUtils.isNotBlank(environment)) {
-			requestBody.append(",{\"match\":{\"tags.Environment.keyword\":\"" + environment + "\"}}");
+			requestBody.append(",{\"match\":{\"tags.Env.keyword\":\"" + environment + "\"}}");
 		}
 		requestBody.append(
 				"],\"should\":[{\"script\":{\"script\":\"LocalDate.parse(doc['firstdiscoveredon.keyword'].value.substring(0,10)).isBefore(LocalDate.from(Instant.ofEpochMilli(new Date().getTime()).atZone(ZoneId.systemDefault())).minusDays(7))\"}},{\"has_child\":{\"type\":\"qualysinfo\",\"query\":{\"match\":{\"latest\":\"true\"}}}}],\"minimum_should_match\":1}}");
@@ -2006,18 +2006,18 @@ if (ruleId.contains(TAGGIG_POLICY)) {
 			requestBody.append("}");
 		} else if ("policydetailsbyapplication".equals(apiType)) {
 			requestBody.append(
-					",\"aggs\":{\"NAME\":{\"terms\":{\"field\":\"tags.Application.keyword\",\"size\":10000}}}}");
+					",\"aggs\":{\"NAME\":{\"terms\":{\"field\":\"tags.App.keyword\",\"size\":10000}}}}");
 		} else if ("policydetailsbyenvironment".equals(apiType)) {
 
 			if (EC2.equals(resourceType)) {
 				requestBody = new StringBuilder(
-						"{\"query\":{\"bool\":{\"must\":[{\"match\":{\"latest\":\"true\"}},{\"match\":{\"statename.keyword\":\"running\"}},{\"match\":{\"tags.Application.keyword\":\""
-								+ application + "\"}},{\"match\":{\"tags.Environment.keyword\":\"" + environment
+						"{\"query\":{\"bool\":{\"must\":[{\"match\":{\"latest\":\"true\"}},{\"match\":{\"statename.keyword\":\"running\"}},{\"match\":{\"tags.App.keyword\":\""
+								+ application + "\"}},{\"match\":{\"tags.Env.keyword\":\"" + environment
 								+ "\"}}],\"should\":[{\"script\":{\"script\":\"LocalDate.parse(doc['firstdiscoveredon.keyword'].value.substring(0,10)).isBefore(LocalDate.from(Instant.ofEpochMilli(new Date().getTime()).atZone(ZoneId.systemDefault())).minusDays(7))\"}},{\"has_child\":{\"type\":\"qualysinfo\",\"query\":{\"match\":{\"latest\":\"true\"}}}}],\"minimum_should_match\":1}}}");
 			} else if (VIRTUALMACHINE.equals(resourceType)) {
 				requestBody = new StringBuilder(
-						"{\"query\":{\"bool\":{\"must\":[{\"match\":{\"latest\":\"true\"}},{\"match\":{\"status.keyword\":\"running\"}},{\"match\":{\"tags.Application.keyword\":\""
-								+ application + "\"}},{\"match\":{\"tags.Environment.keyword\":\"" + environment
+						"{\"query\":{\"bool\":{\"must\":[{\"match\":{\"latest\":\"true\"}},{\"match\":{\"status.keyword\":\"running\"}},{\"match\":{\"tags.App.keyword\":\""
+								+ application + "\"}},{\"match\":{\"tags.Env.keyword\":\"" + environment
 								+ "\"}}],\"should\":[{\"script\":{\"script\":\"LocalDate.parse(doc['firstdiscoveredon.keyword'].value.substring(0,10)).isBefore(LocalDate.from(Instant.ofEpochMilli(new Date().getTime()).atZone(ZoneId.systemDefault())).minusDays(7))\"}},{\"has_child\":{\"type\":\"qualysinfo\",\"query\":{\"match\":{\"latest\":\"true\"}}}}],\"minimum_should_match\":1}}}");
 			}
 		}

@@ -134,7 +134,7 @@ public class CommonTestUtils {
         commonMap.put("passwordlastused", "2018-07-16 12:16:38+00");
         commonMap.put("pwdInactiveDuration", "1");
         commonMap.put("status_RED", "status_RED");
-        commonMap.put("tags.Application", "tags.Application");
+        commonMap.put("tags.App", "tags.App");
         commonMap.put("_entitytype", "ec2");
         commonMap.put("appTagEsURL", "appTagEsURL");
         commonMap.put("heimdallESURL", "heimdallESURL");
@@ -314,7 +314,7 @@ public class CommonTestUtils {
         commonMap.put("passwordlastused", "2018-07-16 12:16:38+00");
         commonMap.put("pwdInactiveDuration", "1");
         commonMap.put("status_RED", "status_RED");
-        commonMap.put("tags.Application", "tags.Application");
+        commonMap.put("tags.App", "tags.App");
         commonMap.put("_entitytype", "ec2");
         commonMap.put("appTagEsURL", "appTagEsURL");
         commonMap.put("heimdallESURL", "heimdallESURL");
@@ -819,7 +819,7 @@ public class CommonTestUtils {
         commonMap.put("passwordlastused", "2018-07-16 12:16:38+00");
         commonMap.put("pwdInactiveDuration", "1");
         commonMap.put("status_RED", "status_RED");
-        commonMap.put("tags.Application", "tags.Application");
+        commonMap.put("tags.App", "tags.App");
         commonMap.put("_entitytype", "ec2");
         commonMap.put("appTagEsURL", "appTagEsURL");
         commonMap.put("heimdallESURL", "heimdallESURL");

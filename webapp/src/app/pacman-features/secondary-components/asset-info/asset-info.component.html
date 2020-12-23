@@ -24,7 +24,7 @@
     </ul>
     <ul class="mr-asset-top-section" *ngIf="untaggedApplicationData">
         <li class="flex flex-between capitalize">
-            <p class="mr-primary-asset-name">Without Application Tag</p>
+            <p class="mr-primary-asset-name">Without App Tag</p>
             <p class="mr-primary-asset-value nowrap-ellipsis" title="{{untaggedApplicationData | number}}" [ngClass]="{'pointer link-text underline-link-num': untaggedApplicationData > 0}" (click)="untaggedApplicationData > 0 && NavigatetoAsset('untagged')">{{untaggedApplicationData | number}}</p>
         </li>
     </ul>

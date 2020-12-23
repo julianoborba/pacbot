@@ -215,7 +215,7 @@ export class DigitalDevStrategyDistributionComponent implements OnInit, OnDestro
          'strategyType': stateObj[event] || event,
          'resourceType': 'dgtldsgn-branch',
          'branchingStrategyType': 'repositories',
-         'tags.Application.keyword': this.appFilter
+         'tags.App.keyword': this.appFilter
       };
       const params = this.utils.makeFilterObj(filter);
       const apiTarget = {

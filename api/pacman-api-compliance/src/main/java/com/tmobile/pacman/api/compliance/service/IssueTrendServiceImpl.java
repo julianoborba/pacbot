@@ -126,11 +126,11 @@ public class IssueTrendServiceImpl implements IssueTrendService, Constants {
             mustFilter.put("ruleId.keyword", ruleId);
         }
         if (!Strings.isNullOrEmpty(app)) {
-            mustFilter.put("tags.Application.keyword", app);
+            mustFilter.put("tags.App.keyword", app);
         }
 
         if (!Strings.isNullOrEmpty(env)) {
-            mustFilter.put("tags.Environment.keyword", env);
+            mustFilter.put("tags.Env.keyword", env);
         }
 
         List<String> hosts = Arrays.asList(esHost,

@@ -225,8 +225,8 @@ public class EntityManager implements Constants {
      *            the entity
      */
     private static void updateOnPremData(Map<String, Object> entity) {
-        entity.put("tags.Application", entity.get("u_business_service").toString().toLowerCase());
-        entity.put("tags.Environment", entity.get("used_for"));
+        entity.put("tags.App", entity.get("u_business_service").toString().toLowerCase());
+        entity.put("tags.Env", entity.get("used_for"));
         entity.put("inScope", "true");
     }
 

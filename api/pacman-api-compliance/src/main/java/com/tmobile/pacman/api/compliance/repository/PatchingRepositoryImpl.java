@@ -198,7 +198,7 @@ try{
                 .getSortedDataFromES(assetGroup, "ec2", mustFilter,
                         mustNotFilter, null, Arrays.asList("tags.Name",
                                 TAGS_APPLICATION, RESOURCEID,
-                                "tags.Environment", "accountname", "vpcid",
+                                "tags.Env", "accountname", "vpcid",
                                 "privateipaddress"), null, null);
 } catch(Exception e){
     throw new DataException(e);
@@ -387,7 +387,7 @@ try{
                         ONPREMSERVER, mustFilter, mustNotFilter, null, Arrays
                                 .asList(RESOURCEID, "ip_address", "host_name",
                                         "kernel_release", TAGS_APPLICATION,
-                                        "tags.Environment"), mustTermsFilter,
+                                        "tags.Env"), mustTermsFilter,
                         mustNotTermsFilter, mustNotWildCardFilter, null);
         } catch(Exception e){
             throw new DataException(e);

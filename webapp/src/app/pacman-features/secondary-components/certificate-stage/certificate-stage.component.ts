@@ -265,7 +265,7 @@ export class CertificateStageComponent implements OnInit, OnDestroy {
       try {
         const currentApp = event;
         if (this.routeTo !== undefined) {
-          const eachParams = {'tags.Application.keyword': this.capitalizeFirstLetter(currentApp), 'expiringIn': '45'};
+          const eachParams = {'tags.App.keyword': this.capitalizeFirstLetter(currentApp), 'expiringIn': '45'};
           const newParams = this.utils.makeFilterObj(eachParams);
           this.router.navigate(['../', this.routeTo], {relativeTo: this.activatedRoute, queryParams: newParams, queryParamsHandling: 'merge'});
         }

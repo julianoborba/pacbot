@@ -247,7 +247,7 @@ public class TaggingServiceImpl implements TaggingService, Constants {
         Map<String, Object> mustNotFilter = new HashMap<>();
         HashMultimap<String, Object> shouldFilter = HashMultimap.create();
         String aggsEntityType = "_entitytype.keyword";
-        mustTermsFilter.put("tags.Application.keyword", tagsList);
+        mustTermsFilter.put("tags.App.keyword", tagsList);
         Map<String, Object> mustFilter = new HashMap<>();
         mustFilter.put("latest", true);
         Map<String, Long> assetWithoutTag;

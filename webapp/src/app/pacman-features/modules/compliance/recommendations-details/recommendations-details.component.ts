@@ -147,13 +147,13 @@ export class RecommendationsDetailsComponent implements OnInit, OnDestroy {
     };
 
     try {
-        if (this.recommendationParams['tags.Application.keyword']) {
-          queryParams['filter']['application'] = this.recommendationParams['tags.Application.keyword'];
+        if (this.recommendationParams['tags.App.keyword']) {
+          queryParams['filter']['application'] = this.recommendationParams['tags.App.keyword'];
         } else if (this.recommendationParams['filter'] && this.recommendationParams.filter.includes('Application')) {
           const filter = this.utils.processFilterObj(
               this.recommendationParams
             );
-            queryParams['filter']['application'] = filter['tags.Application.keyword'];
+            queryParams['filter']['application'] = filter['tags.App.keyword'];
           }
           this.recommandationsInfoSubscription = this.commonResponseService.getData(recommendationsdetailsUrl, recommendationsdetailsMethod, queryParams, {}).subscribe(
             response => {

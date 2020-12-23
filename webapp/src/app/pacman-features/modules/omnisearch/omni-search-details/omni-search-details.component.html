@@ -85,19 +85,19 @@
                         </p>
                     </div>
                     <div class="seach-card-desc-bottom search-card-bottom-section flex flex-column">
-                        <p class="search-card-type hover-element flex flex-align-center" *ngIf="searchCard['tags.Application']">
+                        <p class="search-card-type hover-element flex flex-align-center" *ngIf="searchCard['tags.App']">
                             <span class="nowrap-ellipsis text-element">
                                 <span>Application:</span>
-                                <span  class="font-color">{{searchCard['tags.Application']}}</span>
+                                <span  class="font-color">{{searchCard['tags.App']}}</span>
                             </span>
-                            <span class="copy-icon"><app-copy-element [CopyElement]="searchCard['tags.Application']" [iconSize]="'10px'"></app-copy-element></span>
+                            <span class="copy-icon"><app-copy-element [CopyElement]="searchCard['tags.App']" [iconSize]="'10px'"></app-copy-element></span>
                         </p>
-                        <p class="search-card-type hover-element flex flex-align-center" *ngIf="searchCard['tags.Environment']">
+                        <p class="search-card-type hover-element flex flex-align-center" *ngIf="searchCard['tags.Env']">
                             <span class="nowrap-ellipsis text-element">
                                 <span>Environment:</span>
-                                <span class="font-color">{{searchCard['tags.Environment']}}</span>
+                                <span class="font-color">{{searchCard['tags.Env']}}</span>
                             </span>
-                            <span class="copy-icon"><app-copy-element [CopyElement]="searchCard['tags.Environment']" [iconSize]="'10px'"></app-copy-element></span>
+                            <span class="copy-icon"><app-copy-element [CopyElement]="searchCard['tags.Env']" [iconSize]="'10px'"></app-copy-element></span>
                         </p>
                         <p class="search-card-type hover-element flex flex-align-center" *ngIf="searchCard['tags.Name']">
                             <span class="nowrap-ellipsis text-element">

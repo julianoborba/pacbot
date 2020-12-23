@@ -174,8 +174,8 @@ export class RecommandCategoryComponent implements OnInit, OnChanges, OnDestroy 
               'searchtext': this.searchTxt,
               'size': this.totalRows
             };
-            if (this.filters['tags.Application.keyword']) {
-              downloadRequest['filter']['application'] = this.filters['tags.Application.keyword'];
+            if (this.filters['tags.App.keyword']) {
+              downloadRequest['filter']['application'] = this.filters['tags.App.keyword'];
             } else if (this.filters['filter'] && this.filters['filter'].includes('Application')) {
                 let arr = [];
                 arr = this.filters.filter.split('=');
@@ -220,8 +220,8 @@ export class RecommandCategoryComponent implements OnInit, OnChanges, OnDestroy 
       'searchtext': this.searchTxt,
       'size': this.paginatorSize
     };
-    if (this.filters['tags.Application.keyword']) {
-      queryParam['filter']['application'] = this.filters['tags.Application.keyword'];
+    if (this.filters['tags.App.keyword']) {
+      queryParam['filter']['application'] = this.filters['tags.App.keyword'];
     } else if (this.filters['filter'] && this.filters['filter'].includes('Application')) {
         let arr = [];
         arr = this.filters.filter.split('=');

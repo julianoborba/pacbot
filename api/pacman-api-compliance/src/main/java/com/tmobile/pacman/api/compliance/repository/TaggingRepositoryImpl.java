@@ -127,7 +127,7 @@ public class TaggingRepositoryImpl implements TaggingRepository, Constants {
         }
 
         requestBody
-                .append("],\"should\":[{\"term\":{\"issueStatus.keyword\":{\"value\":\"open\"}}}],\"minimum_should_match\":1}},\"aggs\":{\"apps\":{\"terms\":{\"field\":\"tags.Application.keyword\",\"size\":"
+                .append("],\"should\":[{\"term\":{\"issueStatus.keyword\":{\"value\":\"open\"}}}],\"minimum_should_match\":1}},\"aggs\":{\"apps\":{\"terms\":{\"field\":\"tags.App.keyword\",\"size\":"
                         + pageSize
                         + "},\"aggs\":{\"tags\":{\"filters\":{\"filters\":{");
 
@@ -254,11 +254,11 @@ public class TaggingRepositoryImpl implements TaggingRepository, Constants {
             urlToQuery.append("/").append(targetType);
             urlToQuery.append("/").append(UNDERSCORE_COUNT);
             requestBody
-                    .append("{\"query\":{\"bool\":{\"must\":[{\"match\":{\"latest\":\"true\"}}],\"must_not\":[{\"exists\":{\"field\":\"tags.Application\"}}]}}}");
+                    .append("{\"query\":{\"bool\":{\"must\":[{\"match\":{\"latest\":\"true\"}}],\"must_not\":[{\"exists\":{\"field\":\"tags.App\"}}]}}}");
         } else {
             urlToQuery.append("/").append(SEARCH);
             requestBody
-                    .append("{\"size\":0,\"query\":{\"bool\":{\"must\":[{\"match\":{\"latest\":\"true\"}}],\"must_not\":[{\"exists\":{\"field\":\"tags.Application\"}}]}},\"aggs\":{\"NAME\":{\"terms\":{\"field\":\"_entitytype.keyword\",\"size\":"
+                    .append("{\"size\":0,\"query\":{\"bool\":{\"must\":[{\"match\":{\"latest\":\"true\"}}],\"must_not\":[{\"exists\":{\"field\":\"tags.App\"}}]}},\"aggs\":{\"NAME\":{\"terms\":{\"field\":\"_entitytype.keyword\",\"size\":"
                             + TEN_THOUSAND + "}}}}");
         }
 

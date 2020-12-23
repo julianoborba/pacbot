@@ -178,7 +178,7 @@ public class KernelComplianceRule extends BaseRule {
                 List<String> accountNames = PacmanUtils.splitStringToAList(accNames, tagsSplitter);
                 List<String> sourceTypesList = PacmanUtils.splitStringToAList(sourceType, tagsSplitter);
                 MDC.put("_resourceid", instanceId);
-                MDC.put("applicationname",resourceAttributes.get("tags.Application"));
+                MDC.put("applicationname",resourceAttributes.get("tags.App"));
                 MDC.put("accountname", accountName);
                 boolean isAccountExists = PacmanUtils.isAccountExists(accountNames, accountName);
 

@@ -134,8 +134,8 @@ public class AssetGroupUtil {
                     List<Map<String, Object>> sevinfo = (List<Map<String, Object>>) env.get("severityInfo");
                     for (Map<String, Object> sev : sevinfo) {
                         Map<String, Object> vuln = new HashMap<>();
-                        vuln.put("tags.Application", application);
-                        vuln.put("tags.Environment", environment);
+                        vuln.put("tags.App", application);
+                        vuln.put("tags.Env", environment);
                         vuln.put("severitylevel", sev.get("severitylevel"));
                         vuln.put(SEVERITY, sev.get(SEVERITY));
                         vuln.put(COUNT, sev.get(COUNT));

@@ -73,7 +73,7 @@ public class AssetGroupUtilTest {
         String vulnResponse = "{\"data\":{\"response\":[{\"application\":\"PacMan\",\"applicationInfo\":[{\"environment\":\"Production\",\"vulnerabilities\":308,\"severityInfo\":[{\"severity\":\"S3\",\"vulnInstanceCount\":128,\"count\":128,\"severitylevel\":3},{\"severity\":\"S4\",\"vulnInstanceCount\":170,\"count\":170,\"severitylevel\":4},{\"severity\":\"S5\",\"vulnInstanceCount\":10,\"count\":10,\"severitylevel\":5}]},{\"environment\":\"Non Production\",\"vulnerabilities\":0,\"severityInfo\":[{\"severity\":\"S3\",\"vulnInstanceCount\":0,\"count\":0,\"severitylevel\":3},{\"severity\":\"S4\",\"vulnInstanceCount\":0,\"count\":0,\"severitylevel\":4},{\"severity\":\"S5\",\"vulnInstanceCount\":0,\"count\":0,\"severitylevel\":5}]}]}]},\"message\":\"success\"}";
         when(HttpUtil.get(anyString(),anyString())).thenReturn(vulnResponse);
         List<Map<String, Object>> vulnDistribution = AssetGroupUtil.fetchVulnDistribution("", "","");
-        assertThat(vulnDistribution.get(0).get("tags.Application").toString(), is("PacMan"));
+        assertThat(vulnDistribution.get(0).get("tags.App").toString(), is("PacMan"));
         assertThat(vulnDistribution.size(), is(6));
     }
 

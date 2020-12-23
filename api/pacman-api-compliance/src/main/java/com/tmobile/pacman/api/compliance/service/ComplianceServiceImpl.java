@@ -667,7 +667,7 @@ public class ComplianceServiceImpl implements ComplianceService, Constants {
 			}
 		}
 		requestBody
-				.append("}},\"aggs\":{\"NAME\":{\"terms\":{\"field\":\"tags.Application.keyword\",\"size\":1000}}}}");
+				.append("}},\"aggs\":{\"NAME\":{\"terms\":{\"field\":\"tags.App.keyword\",\"size\":1000}}}}");
 		try {
 			responseJson = PacHttpUtils.doHttpPost(urlToQueryBuffer.toString(), requestBody.toString());
 		} catch (Exception e) {

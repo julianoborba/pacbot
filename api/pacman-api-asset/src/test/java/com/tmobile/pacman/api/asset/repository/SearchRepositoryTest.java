@@ -84,7 +84,7 @@ public class SearchRepositoryTest {
         Map<String, Object> firstRow = new HashMap<>();
         firstRow.put("SEARCH_CATEGORY", "Assets");
         firstRow.put("RESOURCE_TYPE", "All");
-        firstRow.put("REFINE_BY_FIELDS", "accountname,region,tags.Application,tags.Environment,tags.Stack,tags.Role");
+        firstRow.put("REFINE_BY_FIELDS", "accountname,region,tags.App,tags.Env,tags.Stack,tags.Role");
         firstRow.put("RETURN_FIELDS", "_resourceid,searchcategory,tags,accountname,_entitytype");
 
         Map<String, Object> secondRow = new HashMap<>();
@@ -154,7 +154,7 @@ public class SearchRepositoryTest {
         Map<String, Object> firstRow = new HashMap<>();
         firstRow.put("SEARCH_CATEGORY", "Assets");
         firstRow.put("RESOURCE_TYPE", "All");
-        firstRow.put("REFINE_BY_FIELDS", "accountname,region,tags.Application,tags.Environment,tags.Stack,tags.Role");
+        firstRow.put("REFINE_BY_FIELDS", "accountname,region,tags.App,tags.Env,tags.Stack,tags.Role");
         firstRow.put("RETURN_FIELDS", "_resourceid,searchcategory,tags,accountname,_entitytype");
 
         Map<String, Object> secondRow = new HashMap<>();

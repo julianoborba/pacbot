@@ -501,8 +501,8 @@ export class VulnerabilitiesComponent implements OnInit, OnDestroy {
       const apiTarget = { TypeAsset: 'vulnerable' };
       this.workflowService.addRouterSnapshotToLevel(this.router.routerState.snapshot.root);
       if (row.col.toLowerCase() === 'assets affected' || row.col.toLowerCase() === 'assetsaffected') {
-        const applicationFilterValue = this.filterText['tags.Application.keyword'];
-        const environmentFilterValue = this.filterText['tags.Environment.keyword'];
+        const applicationFilterValue = this.filterText['tags.App.keyword'];
+        const environmentFilterValue = this.filterText['tags.Env.keyword'];
         const eachParams = { qid: row.row.qid.valText, application: applicationFilterValue, environment:  environmentFilterValue};
         let newParams = this.utils.makeFilterObj(eachParams);
         newParams = Object.assign(newParams, apiTarget);

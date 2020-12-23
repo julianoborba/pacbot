@@ -215,7 +215,7 @@ export class DigitalApplicationDistributionComponent
          'strategyType': prStateObj[data.x_domain] || data.x_domain,
          'branchingStrategyType': 'applications',
          'resourceType': 'dgtldsgn-branch',
-         'tags.Application.keyword': this.appFilter
+         'tags.App.keyword': this.appFilter
       };
       const params = this.utils.makeFilterObj(filter);
       const apiTarget = {

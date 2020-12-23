@@ -556,7 +556,7 @@ public class AssetRepositoryImpl implements AssetRepository {
                                                                                                  // for
                                                                                                  // latest=true
         if (application != null) {
-            request.append(",{\"match\":{\"tags.Application.keyword\":\"" + application + "\"}}"); // Add
+            request.append(",{\"match\":{\"tags.App.keyword\":\"" + application + "\"}}"); // Add
                                                                                                    // Application
                                                                                                    // filter
         }
@@ -572,7 +572,7 @@ public class AssetRepositoryImpl implements AssetRepository {
                                                                                                    // assets
             // Ending must/bool/query
             request.append("]}}");
-            request.append(",\"aggs\":{\"apps\":{\"terms\":{\"field\":\"tags.Application.keyword\",\"size\":1000},\"aggs\":{\"envs\":{\"terms\":{\"field\":\"tags.Environment.keyword\",\"size\":1000}}}}}}"); // Aggs
+            request.append(",\"aggs\":{\"apps\":{\"terms\":{\"field\":\"tags.App.keyword\",\"size\":1000},\"aggs\":{\"envs\":{\"terms\":{\"field\":\"tags.Env.keyword\",\"size\":1000}}}}}}"); // Aggs
         } // part
 
         String responseJson = "";
@@ -1353,12 +1353,12 @@ public class AssetRepositoryImpl implements AssetRepository {
 				requestBody.append(filter.get("qid"));
 				requestBody.append("}}]}}}},{\"term\":{\"latest\":true}}");
 				if (filter.containsKey(AssetConstants.FILTER_APPLICATION)) {
-					requestBody.append(",{\"term\":{\"tags.Application.keyword\":\"");
+					requestBody.append(",{\"term\":{\"tags.App.keyword\":\"");
 					requestBody.append(filter.get(AssetConstants.FILTER_APPLICATION));
 					requestBody.append("\"}}");
 				}
 				if (filter.containsKey(AssetConstants.FILTER_ENVIRONMENT)) {
-					requestBody.append(",{\"term\":{\"tags.Environment.keyword\":\"");
+					requestBody.append(",{\"term\":{\"tags.Env.keyword\":\"");
 					requestBody.append(filter.get(AssetConstants.FILTER_ENVIRONMENT));
 					requestBody.append("\"}}");
 				}
@@ -1852,13 +1852,13 @@ public class AssetRepositoryImpl implements AssetRepository {
 			Map<String, Object> plResMustFilter = new HashMap<>();
 			plResMustFilter.put(CommonUtils.convertAttributetoKeyword("_resourceid"), resourceId);
 			List<Map<String, Object>> tagsInput = esRepository.getDataFromES(Constants.MASTER_ALIAS, null, plResMustFilter, null, null,
-					Arrays.asList("tags.Owner", "tags.Application"), null);
+					Arrays.asList("tags.Owner", "tags.App"), null);
 
 			map.put("ownerEmail", getValueFromList(tagsInput, "tags.Owner"));
 
 			Map<String, Object> appTagMustFilter = new HashMap<>();
 			appTagMustFilter.put(CommonUtils.convertAttributetoKeyword("appTag"),
-					getValueFromList(tagsInput, "tags.Application"));
+					getValueFromList(tagsInput, "tags.App"));
 			List<Map<String, Object>> plFromAppTag = esRepository.getDataFromES("aws_apps", null, appTagMustFilter,
 					null, null, Arrays.asList("projectLead"), null);
 			if (!plFromAppTag.isEmpty() && (map.get("projectLead") == null || map.get("projectLead").equals(""))) {

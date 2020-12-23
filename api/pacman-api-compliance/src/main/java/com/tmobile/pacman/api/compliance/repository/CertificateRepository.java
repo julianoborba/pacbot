@@ -96,7 +96,7 @@ public class CertificateRepository implements Constants {
         StringBuilder urlToQuery = new StringBuilder(esUrl).append("/").append(
                 assetGroup);
         urlToQuery.append(CERT_SEARCH);
-        String requestBody = "{\"size\":0,\"aggs\":{\"apps\":{\"terms\":{\"field\":\"tags.Application.keyword\",\"size\":"
+        String requestBody = "{\"size\":0,\"aggs\":{\"apps\":{\"terms\":{\"field\":\"tags.App.keyword\",\"size\":"
                 + TEN_THOUSAND
                 + "},"
                 + "\"aggs\":{\"certs\":{\"children\":{\"type\":\"issue_cert\"},\"aggs\":{\"openfilter\":{\"filter\":{\"term\":{\"issueStatus\":\"open\"}},"
@@ -185,16 +185,16 @@ public class CertificateRepository implements Constants {
 
             StringBuilder requestBody = new StringBuilder(
                     "{\"size\":").append(TEN_THOUSAND).append(",\"query\":{\"bool\":{\"must\":[{\"match\":{\"latest\":\"true\"}}");
-            if (filter.containsKey("tags.Application.keyword")) {
+            if (filter.containsKey("tags.App.keyword")) {
                 requestBody
-                        .append(",{\"match\":{\"tags.Application.keyword\":\"");
-                requestBody.append(filter.get("tags.Application.keyword"));
+                        .append(",{\"match\":{\"tags.App.keyword\":\"");
+                requestBody.append(filter.get("tags.App.keyword"));
                 requestBody.append("\"}}");
             }
-            if (filter.containsKey("tags.Environment.keyword")) {
+            if (filter.containsKey("tags.Env.keyword")) {
                 requestBody
-                        .append(",{\"match\":{\"tags.Environment.keyword\":\"");
-                requestBody.append(filter.get("tags.Environment.keyword"));
+                        .append(",{\"match\":{\"tags.Env.keyword\":\"");
+                requestBody.append(filter.get("tags.Env.keyword"));
                 requestBody.append("\"}}");
             }
             if (filter.containsKey(EXP_IN)) {
@@ -261,9 +261,9 @@ public class CertificateRepository implements Constants {
                 certificate.put("type",
                         _certificatesDetailsFromES.get("certType"));
                 certificate.put("application",
-                        _certificatesDetailsFromES.get("tags.Application"));
+                        _certificatesDetailsFromES.get("tags.App"));
                 certificate.put("environment",
-                        _certificatesDetailsFromES.get("tags.Environment"));
+                        _certificatesDetailsFromES.get("tags.Env"));
                 certificate.put("owner",
                         _certificatesDetailsFromES.get("tags.Owner"));
                 certificate.put("issuer",

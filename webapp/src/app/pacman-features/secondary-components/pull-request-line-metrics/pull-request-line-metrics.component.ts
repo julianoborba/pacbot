@@ -736,7 +736,7 @@ export class PullRequestLineMetricsComponent implements OnInit, OnDestroy, OnCha
          'year': this.currentYear - this.selectedYear,
          'qtr': this.finalData[this.selectedYear].quartersData[this.selectedQuarter].number,
          'week': this.selectedWeek + 1,
-         'tags.Application.keyword': this.appFilter
+         'tags.App.keyword': this.appFilter
       };
       const params = this.utilsService.makeFilterObj(filter);
       const apiTarget = {

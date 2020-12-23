@@ -33,7 +33,7 @@
         <div class='wrapper-parent'>
             <div class="wrapper-container flex flex-between">
                 <div class="tagged relative" *ngIf="selectedResource.type !== undefined">
-                    <p class="asset-dist-header">Asset by application</p>
+                    <p class="asset-dist-header">Asset by app</p>
                     <app-asset-info [targetType]="selectedResource.type" [pageLevel]="pageLevel"></app-asset-info>
                 </div>
                 <div class="multiline-chart" *ngIf="selectedResource !== undefined">

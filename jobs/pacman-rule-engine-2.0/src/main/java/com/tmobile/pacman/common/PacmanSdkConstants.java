@@ -314,10 +314,10 @@ public interface PacmanSdkConstants extends com.tmobile.pacman.commons.PacmanSdk
     String INVOCATION_ID = "invocationId";
 
     /** The application tag key. */
-    String APPLICATION_TAG_KEY = "tags.Application";
+    String APPLICATION_TAG_KEY = "tags.App";
 
     /** The env tag key. */
-    String ENV_TAG_KEY = "tags.Environment";
+    String ENV_TAG_KEY = "tags.Env";
 
     /** The http post retry interval. */
     Long HTTP_POST_RETRY_INTERVAL = 2000L;

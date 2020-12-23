@@ -177,8 +177,8 @@ public class PatchingServiceImplTest {
         patchingProgressMap.put("executiveSponsor", "John Doe");
         patchingProgressMap.put("director", "John Doel");
         patchingProgressMap.put("appTag", "Cloud Core");
-        patchingProgressMap.put("tags.Application", "Cloud Core");
-        patchingProgressMap.put("tags.Environment", "COM");
+        patchingProgressMap.put("tags.App", "Cloud Core");
+        patchingProgressMap.put("tags.Env", "COM");
         patchingProgressMap.put("Cloud Core", "abc");
         patchingProgressMap.put("sourceType", "webservice");
         patchingProgressMap.put("kernelVersion", "4.14.47-56.37.amzn1.x86_64");
@@ -192,9 +192,9 @@ public class PatchingServiceImplTest {
         Map<String, Object> instanceInfoMap = new HashMap<>();
         List<Map<String, Object>> instanceInfoList = new ArrayList<>();
         instanceInfoMap.put("_resourceid", "_resourceid");
-        instanceInfoMap.put("tags.Application", "Cloud Core");
+        instanceInfoMap.put("tags.App", "Cloud Core");
         instanceInfoMap.put("reason-to-close", closedInfoMap);
-        instanceInfoMap.put("tags.Environment", "env");
+        instanceInfoMap.put("tags.Env", "env");
         instanceInfoMap.put("Cloud Core", "abc");
         instanceInfoMap.put("issueStatus", "open");
         instanceInfoMap.put("_resourceid", closedInfoMap);

@@ -159,7 +159,7 @@ public class PacmanRuleConstants {
     public static final String ES_SATLLITE_AND_SPACEWALK_URL = "esSatAndSpacewalkUrl";
     public static final String ES_QUALYS_URL = "esQualysUrl";
     public static final String HEIMDALL_ES_URL = "heimdallESURL";
-    public static final String TAGS_APP = "tags.Application";
+    public static final String TAGS_APP = "tags.App";
     public static final String APP_TAG = "appTag";
     public static final String APP_TAG_KEYWORD = "appTag.keyword";
     public static final String APP_ID = "appID";

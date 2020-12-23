@@ -221,8 +221,8 @@ public class CertificateRepositoryTest {
     @Test
     public void getCerticatesDetailsTest() throws Exception {
         
-        String response = "{\"_scroll_id\":\"scrollid\",\"hits\":{\"hits\":[{\"_index\":\"aws_cert\",\"_type\":\"cert\",\"_id\":\"tst.domain_Public\",\"_score\":0.2211614,\"_source\":{\"certType\":\"Public\",\"tags.Environment\":\"\",\"tags.Application\":\"APP1\",\"tags.Owner\":\"\",\"status\":\"active\",\"validto\":\"9/11/2018 10:44\","
-                + "\"commonname\":\"tst.domain\",\"validfrom\":\"9/11/2017 10:14\"}},{\"_index\":\"aws_cert\",\"_type\":\"cert\",\"_id\":\"dev1r2.rbl_Internal\",\"_score\":0.2211614,\"_source\":{\"certType\":\"Internal\",\"tags.Environment\":\"Non-Prod\",\"tags.Application\":\"APP1\","
+        String response = "{\"_scroll_id\":\"scrollid\",\"hits\":{\"hits\":[{\"_index\":\"aws_cert\",\"_type\":\"cert\",\"_id\":\"tst.domain_Public\",\"_score\":0.2211614,\"_source\":{\"certType\":\"Public\",\"tags.Env\":\"\",\"tags.App\":\"APP1\",\"tags.Owner\":\"\",\"status\":\"active\",\"validto\":\"9/11/2018 10:44\","
+                + "\"commonname\":\"tst.domain\",\"validfrom\":\"9/11/2017 10:14\"}},{\"_index\":\"aws_cert\",\"_type\":\"cert\",\"_id\":\"dev1r2.rbl_Internal\",\"_score\":0.2211614,\"_source\":{\"certType\":\"Internal\",\"tags.Env\":\"Non-Prod\",\"tags.App\":\"APP1\","
                 + "\"issuerdn\":\"CN=T-Mobile USA Enterprise Issuing CA 01, DC=gsm1900, DC=org\",\"tags.Owner\":\"\",\"status\":\"active\",\"validto\":\"9/15/2018 10:06\",\"commonname\":\"dev1r2.rbl\",\"validfrom\":\"9/15/2017 10:06\"}}]}}";
         
         when(elasticSearchRepository.getTotalDocumentCountForIndexAndType(
@@ -242,7 +242,7 @@ public class CertificateRepositoryTest {
     public void getCerticatesDetailsTest_WithFiltersExpiringIn30Days() throws Exception {
         
         String response = "{\"_scroll_id\":\"scrollid\",\"hits\":{\"hits\":[{\"_index\":\"aws_cert\",\"_type\":\"cert\",\"_id\":\"tst.domain_Public\",\"_score\":0.2211614,\"_source\":{\"certType\":\"Public\","
-                + "\"tags.Environment\":\"\",\"tags.Application\":\"APP1\",\"tags.Owner\":\"\",\"status\":\"active\",\"validto\":\"9/11/2018 10:44\",\"commonname\":\"tst.domain\",\"validfrom\":\"9/11/2017 10:14\"}}]}}";
+                + "\"tags.Env\":\"\",\"tags.App\":\"APP1\",\"tags.Owner\":\"\",\"status\":\"active\",\"validto\":\"9/11/2018 10:44\",\"commonname\":\"tst.domain\",\"validfrom\":\"9/11/2017 10:14\"}}]}}";
         
         when(elasticSearchRepository.getTotalDocumentCountForIndexAndType(
                 anyString(),anyString(),anyObject(),anyObject(),anyObject(),anyObject(),anyObject())).thenReturn(10L);
@@ -252,8 +252,8 @@ public class CertificateRepositoryTest {
         when(elasticSearchRepository.processResponseAndSendTheScrollBack(anyString(), anyObject())).thenCallRealMethod();
     
         Map<String, String> filter = new HashMap<>();
-        filter.put("tags.Application.keyword", "app");
-        filter.put("tags.Environment.keyword", "env");
+        filter.put("tags.App.keyword", "app");
+        filter.put("tags.Env.keyword", "env");
         filter.put("expiringIn", "30");
         
         List<Map<String, Object>> certificatesDetails = certificateRepository.getCertificatesDetails("APP1", null, filter);
@@ -265,7 +265,7 @@ public class CertificateRepositoryTest {
     public void getCerticatesDetailsTest_WithFiltersExpiringIn45Days() throws Exception {
         
         String response = "{\"_scroll_id\":\"scrollid\",\"hits\":{\"hits\":[{\"_index\":\"aws_cert\",\"_type\":\"cert\",\"_id\":\"tst.domain_Public\",\"_score\":0.2211614,\"_source\":{\"certType\":\"Public\","
-                + "\"tags.Environment\":\"\",\"tags.Application\":\"APP1\",\"tags.Owner\":\"\",\"status\":\"active\",\"validto\":\"9/11/2018 10:44\",\"commonname\":\"tst.domain\",\"validfrom\":\"9/11/2017 10:14\"}}]}}";
+                + "\"tags.Env\":\"\",\"tags.App\":\"APP1\",\"tags.Owner\":\"\",\"status\":\"active\",\"validto\":\"9/11/2018 10:44\",\"commonname\":\"tst.domain\",\"validfrom\":\"9/11/2017 10:14\"}}]}}";
         
         when(elasticSearchRepository.getTotalDocumentCountForIndexAndType(
                 anyString(),anyString(),anyObject(),anyObject(),anyObject(),anyObject(),anyObject())).thenReturn(10L);

@@ -96,13 +96,13 @@ public interface Constants {
     String COMPLIANCE_PERCENT = "compliance_percent";
     String LAST_SCAN = "lastScan";
     String TAGGING_POLICY = "PacMan_TaggingRule_version-1";
-    String TAGS_APPLICATION = "tags.Application";
+    String TAGS_APPLICATION = "tags.App";
     String MISSING_TAGS = "missingTags";
     String ACCOUNT_ID = "accountid";
     String ACCOUNT_NAME = "accountname";
     String REGION = "region";
     String CREATED_DATE = "createdDate";
-    String TAGS_ENVIRONMENT = "tags.Environment";
+    String TAGS_ENVIRONMENT = "tags.Env";
     String DESC = "desc";
     String POLICY_DISPLAY_NAME = "PolicyName";
     String RULE_DISPLAY_ID = "RuleId";
@@ -197,7 +197,7 @@ public interface Constants {
     String APPS = "application";;
     String SCROLL = "?scroll=";
     String SLASH_SCROLL = "/scroll";
-    String TAGS_APPS = "tags.Application.keyword";
+    String TAGS_APPS = "tags.App.keyword";
     String SEVERITY_INFO = "severityInfo";
     String QUALYS_INFO = "qualysinfo";
     String VULN = "vulns";
@@ -240,7 +240,7 @@ public interface Constants {
     String ATTRIBUTES = "attributes";
     String SRC_NAME = "srcname";
     String DOUBLE_ZERO = "0.0";
-    String TAGS_ENV = "tags.Environment.keyword";
+    String TAGS_ENV = "tags.Env.keyword";
     int TWO = 2;
     String ISSUE_UNDERSCORE = "issue_";
     String HAS_PARENT = "has_parent";

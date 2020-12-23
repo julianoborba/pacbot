@@ -66,7 +66,7 @@ public class RecommendationsRepository {
     	StringBuilder urlToQuery = new StringBuilder(esUrl).append("/").append(assetGroup).append("/").append(Constants.SEARCH);
 		StringBuilder requestBody = new StringBuilder("{\"size\":0,\"query\":{\"bool\":{\"must\":[{\"match\":{\"latest\":\"true\"}}");
 		if(StringUtils.isNotBlank(application)) {
-			requestBody.append(",{\"match\":{\"tags.Application.keyword\":\"");
+			requestBody.append(",{\"match\":{\"tags.App.keyword\":\"");
 			requestBody.append(application);
 			requestBody.append("\"}}");
 		}
@@ -132,7 +132,7 @@ public class RecommendationsRepository {
 		
     	StringBuilder urlToQuery = new StringBuilder(esUrl).append("/").append(assetGroup).append("/").append(Constants.SEARCH);
 		StringBuilder requestBody = new StringBuilder("{\"size\":0,\"query\":{\"bool\":{\"must\":[{\"match\":{\"latest\":true}},{\"match\":{\"_entity.keyword\":true}}]}},"
-				+ "\"aggs\":{\"apps\":{\"terms\":{\"field\":\"tags.Application.keyword\",\"size\":100000},\"aggs\":{\"recommendations\":{\"children\":{\"type\":\"recommendation\"},"
+				+ "\"aggs\":{\"apps\":{\"terms\":{\"field\":\"tags.App.keyword\",\"size\":100000},\"aggs\":{\"recommendations\":{\"children\":{\"type\":\"recommendation\"},"
 				+ "\"aggs\":{\"latest\":{\"filter\":{\"match\":{\"latest\":true}},\"aggs\":{\"category\":{\"filter\":{\"match\":{\"category.keyword\":\"");
 		requestBody.append(category);
 		requestBody.append("\"}},\"aggs\":{\"savings\":{\"sum\":{\"field\":\"monthlysavings\"}}}}}}}}}}}}");
@@ -187,7 +187,7 @@ public class RecommendationsRepository {
 		
     	StringBuilder urlToQuery = new StringBuilder(esUrl).append("/").append(assetGroup).append("/").append(Constants.SEARCH);
 		StringBuilder requestBody = new StringBuilder("{\"size\":0,\"query\":{\"bool\":{\"must\":[{\"match\":{\"latest\":true}},{\"match\":{\"_entity.keyword\":true}}]}}"
-				+ ",\"aggs\":{\"apps\":{\"terms\":{\"field\":\"tags.Application.keyword\",\"size\":100000},\"aggs\":{\"recommendations\":{\"children\":{\"type\":\"recommendation\"}"
+				+ ",\"aggs\":{\"apps\":{\"terms\":{\"field\":\"tags.App.keyword\",\"size\":100000},\"aggs\":{\"recommendations\":{\"children\":{\"type\":\"recommendation\"}"
 				+ ",\"aggs\":{\"latest\":{\"filter\":{\"match\":{\"latest\":true}},\"aggs\":{\"savings\":{\"sum\":{\"field\":\"monthlysavings\"}}}}}}}}}}");
 		String responseDetails;
 		try {
@@ -233,7 +233,7 @@ public class RecommendationsRepository {
 		StringBuilder urlToQuery = new StringBuilder(esUrl).append("/").append(assetGroup).append("/").append(Constants.SEARCH);
 		StringBuilder requestBody = new StringBuilder("{\"size\":0,\"query\":{\"bool\":{\"must\":[{\"match\":{\"latest\":true}},{\"match\":{\"_entity.keyword\":true}}");
 		if(StringUtils.isNotBlank(application)) {
-			requestBody.append(",{\"match\":{\"tags.Application.keyword\":\"");
+			requestBody.append(",{\"match\":{\"tags.App.keyword\":\"");
 			requestBody.append(application);
 			requestBody.append("\"}}");
 		}
@@ -325,7 +325,7 @@ public class RecommendationsRepository {
 		if(StringUtils.isNotBlank(application)) {
 			requestBody.append(",{\"has_parent\":{\"parent_type\":\"");
 			requestBody.append(parentType);
-			requestBody.append("\",\"query\":{\"bool\":{\"must\":[{\"match\":{\"latest\":true}},{\"match\":{\"_entity.keyword\":true}},{\"match\":{\"tags.Application.keyword\":\"");
+			requestBody.append("\",\"query\":{\"bool\":{\"must\":[{\"match\":{\"latest\":true}},{\"match\":{\"_entity.keyword\":true}},{\"match\":{\"tags.App.keyword\":\"");
 			requestBody.append(application);
 			requestBody.append("\"}}]}}}}");
 		}

@@ -152,7 +152,7 @@ public class HostAssetDataImporter extends QualysDataImporter implements Constan
         String indexName = ds+"_" + type;
         List<String> filters = new ArrayList<>();
         if ("ec2".equals(type)) {
-            filters = Arrays.asList("_docid", "privateipaddress", "tags.Name", RESOURCE_ID, "tags.Application",
+            filters = Arrays.asList("_docid", "privateipaddress", "tags.Name", RESOURCE_ID, "tags.App",
                     "accountid", "accountname", "statename", "platform", VPC_ID, "publicipaddress", "imageid");
         } else if ("onpremserver".equals(type)) {
             filters = Arrays.asList("_docid", "name", "fqdn", "ip_address", RESOURCE_ID);

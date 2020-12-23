@@ -174,11 +174,11 @@ export class RecommendationsComponent implements OnInit, OnChanges, OnDestroy {
         this.appliedFilters.pageLevelAppliedFilters = this.utils.processFilterObj(
           this.appliedFilters.pageLevelAppliedFilters
         );
-        if (!this.general && this.selectedApplication !== this.appliedFilters.pageLevelAppliedFilters['tags.Application.keyword']) {
+        if (!this.general && this.selectedApplication !== this.appliedFilters.pageLevelAppliedFilters['tags.App.keyword']) {
           this.updateComponent();
         }
-        if (this.appliedFilters.pageLevelAppliedFilters['tags.Application.keyword']) {
-          this.selectedApplication = this.appliedFilters.pageLevelAppliedFilters['tags.Application.keyword'];
+        if (this.appliedFilters.pageLevelAppliedFilters['tags.App.keyword']) {
+          this.selectedApplication = this.appliedFilters.pageLevelAppliedFilters['tags.App.keyword'];
         } else {
           this.selectedApplication = 'Total';
         }
@@ -256,7 +256,7 @@ export class RecommendationsComponent implements OnInit, OnChanges, OnDestroy {
     const currentQueryParams = this.routerUtilityService.getQueryParametersFromSnapshot(
       this.router.routerState.snapshot.root
     );
-    if (this.appliedFilters.pageLevelAppliedFilters['tags.Application.keyword']) {
+    if (this.appliedFilters.pageLevelAppliedFilters['tags.App.keyword']) {
       this.appliedFilters.pageLevelAppliedFilters = this.utils.makeFilterObj(
         this.appliedFilters.pageLevelAppliedFilters
       );
@@ -287,7 +287,7 @@ export class RecommendationsComponent implements OnInit, OnChanges, OnDestroy {
     }
     const filterArr = [{
       compareKey: 'tags.application.keyword',
-      filterkey: 'tags.Application.keyword',
+      filterkey: 'tags.App.keyword',
       key: 'Application',
       value: appName
     }];
@@ -303,7 +303,7 @@ export class RecommendationsComponent implements OnInit, OnChanges, OnDestroy {
       const queryParam = {
         'ag': this.selectedAssetGroup,
         'general': this.general,
-        'application': this.appliedFilters.pageLevelAppliedFilters['tags.Application.keyword']
+        'application': this.appliedFilters.pageLevelAppliedFilters['tags.App.keyword']
       };
       this.errorVal.summaryStatus = 0;
       this.tabName = [];
@@ -505,9 +505,9 @@ export class RecommendationsComponent implements OnInit, OnChanges, OnDestroy {
         'ag': this.selectedAssetGroup
       };
       this.totalCost = 0;
-      if (this.appliedFilters.pageLevelAppliedFilters['tags.Application.keyword']) {
-        this.selectedApplication = this.appliedFilters.pageLevelAppliedFilters['tags.Application.keyword'];
-        queryParam['application'] = this.appliedFilters.pageLevelAppliedFilters['tags.Application.keyword'];
+      if (this.appliedFilters.pageLevelAppliedFilters['tags.App.keyword']) {
+        this.selectedApplication = this.appliedFilters.pageLevelAppliedFilters['tags.App.keyword'];
+        queryParam['application'] = this.appliedFilters.pageLevelAppliedFilters['tags.App.keyword'];
       }
       const url = environment.costApplications.url;
       const method = environment.costApplications.method;

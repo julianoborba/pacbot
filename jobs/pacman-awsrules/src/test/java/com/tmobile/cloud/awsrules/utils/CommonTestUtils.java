@@ -134,7 +134,7 @@ public class CommonTestUtils {
         commonMap.put("passwordlastused", "2018-07-16 12:16:38+00");
         commonMap.put("pwdInactiveDuration", "1");
         commonMap.put("status_RED", "status_RED");
-        commonMap.put("tags.Application", "identifiableKey");
+        commonMap.put("tags.App", "identifiableKey");
         commonMap.put("_entitytype", "elasticache");
         commonMap.put("appTagEsURL", "appTagEsURL");
         commonMap.put("heimdallESURL", "heimdallESURL");
@@ -314,7 +314,7 @@ public class CommonTestUtils {
         commonMap.put("passwordlastused", "2018-07-16 12:16:38+00");
         commonMap.put("pwdInactiveDuration", "1");
         commonMap.put("status_RED", "status_RED");
-        commonMap.put("tags.Application", "tags.Application");
+        commonMap.put("tags.App", "tags.App");
         commonMap.put("_entitytype", "ec2");
         commonMap.put("appTagEsURL", "appTagEsURL");
         commonMap.put("heimdallESURL", "heimdallESURL");
@@ -715,7 +715,7 @@ public class CommonTestUtils {
         commonMap.put("description", "RP FND");
         commonMap.put("passwordlastused", "passwordlastused");
         commonMap.put("statename", "Stopped");
-        commonMap.put("tags.Application", "identifiableKey");
+        commonMap.put("tags.App", "identifiableKey");
         commonMap.put("volumeid", "");
         commonMap.put("firstdiscoveredon", "2018-08-03 10:00:00+00");
         commonMap.put("discoveredDaysRange", "7");
@@ -863,7 +863,7 @@ public class CommonTestUtils {
         commonMap.put("passwordlastused", "2018-07-16 12:16:38+00");
         commonMap.put("pwdInactiveDuration", "1");
         commonMap.put("status_RED", "status_RED");
-        commonMap.put("tags.Application", "tags.Application");
+        commonMap.put("tags.App", "tags.App");
         commonMap.put("_entitytype", "ec2");
         commonMap.put("appTagEsURL", "appTagEsURL");
         commonMap.put("heimdallESURL", "heimdallESURL");
@@ -1074,7 +1074,7 @@ public class CommonTestUtils {
         commonMap.put("passwordlastused", "2018-07-16 12:16:38+00");
         commonMap.put("pwdInactiveDuration", "1");
         commonMap.put("status_RED", "status_RED");
-        commonMap.put("tags.Application", "identifiableKey");
+        commonMap.put("tags.App", "identifiableKey");
         commonMap.put("_entitytype", "elasticache");
         commonMap.put("appTagEsURL", "appTagEsURL");
         commonMap.put("heimdallESURL", "heimdallESURL");
