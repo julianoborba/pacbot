@@ -134,7 +134,7 @@ public class AssetListController {
      * @return list of assets tagged/untagged.
      */
     
-    @ApiOperation(httpMethod = "POST", value = "Get the list of taggble assets in an asset group. Optional filters -'application','environment','resourceType','tagged'{true/false} ,'tagName' {Application/Environment/Stack/Role}")
+    @ApiOperation(httpMethod = "POST", value = "Get the list of taggble assets in an asset group. Optional filters -'application','environment','resourceType','tagged'{true/false} ,'tagName' {App/Env/Stack/Role}")
     @PostMapping(value = "/v1/list/assets/taggable")
     public ResponseEntity<Object> listTaggableAssets(@RequestBody(required = true) Request request) {
 

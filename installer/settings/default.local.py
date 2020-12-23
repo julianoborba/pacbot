@@ -9,8 +9,8 @@ VPC = {
 
 # CUstom tags that can be defined by user
 CUSTOM_RESOURCE_TAGS = {
-    'Application': "PacBot",
-    'Environment': "Prod",
+    'App': "PacBot",
+    'Env': "Prod",
     'Created By': "customer-name"
 }
 

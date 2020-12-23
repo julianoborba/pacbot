@@ -276,7 +276,7 @@ export class RecommendationsComponent implements OnInit, OnChanges, OnDestroy {
 
   navigateTo(category, appVal) {
     if (appVal) {
-      this.updateApplicationFilter(appVal['Application'].text);
+      this.updateApplicationFilter(appVal['App'].text);
     }
     this.navigateToTab(category);
  }
@@ -288,7 +288,7 @@ export class RecommendationsComponent implements OnInit, OnChanges, OnDestroy {
     const filterArr = [{
       compareKey: 'tags.application.keyword',
       filterkey: 'tags.App.keyword',
-      key: 'Application',
+      key: 'App',
       value: appName
     }];
     this.updateUrlWithNewFilters(filterArr);
@@ -461,7 +461,7 @@ export class RecommendationsComponent implements OnInit, OnChanges, OnDestroy {
     }
     sortedData.forEach(element => {
       const eachRow = {};
-        eachRow['Application'] = {
+        eachRow['App'] = {
           'text': element['application'],
           'valText': element['application']
         };

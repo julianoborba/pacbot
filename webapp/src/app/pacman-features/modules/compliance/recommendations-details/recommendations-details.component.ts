@@ -149,7 +149,7 @@ export class RecommendationsDetailsComponent implements OnInit, OnDestroy {
     try {
         if (this.recommendationParams['tags.App.keyword']) {
           queryParams['filter']['application'] = this.recommendationParams['tags.App.keyword'];
-        } else if (this.recommendationParams['filter'] && this.recommendationParams.filter.includes('Application')) {
+        } else if (this.recommendationParams['filter'] && this.recommendationParams.filter.includes('App')) {
           const filter = this.utils.processFilterObj(
               this.recommendationParams
             );
@@ -420,7 +420,7 @@ export class RecommendationsDetailsComponent implements OnInit, OnDestroy {
               'size': this.totalRows,
               'searchtext': this.searchTxt
         };
-        if (this.recommendationParams['filter'] && this.recommendationParams.filter.includes('Application')) {
+        if (this.recommendationParams['filter'] && this.recommendationParams.filter.includes('App')) {
           let arr = [];
           arr = this.recommendationParams.filter.split('=');
           downloadRequest['filter']['application'] = arr.length > 1 ? arr[1] : '';

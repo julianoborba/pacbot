@@ -634,7 +634,7 @@ public class AssetRepositoryTest {
 
         ReflectionTestUtils.setField(repository, "rdsRepository", pacmanRdsRepository);
 
-        ReflectionTestUtils.setField(repository, "mandatoryTags", "Application,Environment");
+        ReflectionTestUtils.setField(repository, "mandatoryTags", "App,Env");
 
         List<Map<String, Object>> result = repository.getListAssetsTaggable("ag", filter);
         filter.remove("resourceType");
@@ -707,7 +707,7 @@ public class AssetRepositoryTest {
         Map<String, Object> asset1 = new HashMap<>();
         asset1.put("_resourceid", "a1");
         asset1.put("policyId", "PacMan_TaggingRule_version-1");
-        asset1.put("Environment", "Not Found");
+        asset1.put("Env", "Not Found");
 
         Map<String, Object> asset2 = new HashMap<>();
         asset2.put("_resourceid", "b2");
@@ -716,7 +716,7 @@ public class AssetRepositoryTest {
         List<Map<String, Object>> assetList = new ArrayList<>();
         assetList.add(asset1);
         assetList.add(asset2);
-        ReflectionTestUtils.setField(repository, "mandatoryTags", "Application,Environment");
+        ReflectionTestUtils.setField(repository, "mandatoryTags", "App,Env");
 
         Map<String, Object> ttypeMap1 = new HashMap<>();
         ttypeMap1.put("targetType", "ec2");

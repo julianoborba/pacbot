@@ -130,7 +130,7 @@ public class Util {
 
         if (titlteMatchStrings.parallelStream().anyMatch(title::contains)
                 || catetoryMatchStrings.parallelStream().anyMatch(cateogry::contains))
-            classification = "Application";
+            classification = "App";
 
         return classification;
     }

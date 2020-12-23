@@ -167,7 +167,7 @@ export class DevStaleBranchApplicationsComponent implements OnInit, OnDestroy, O
            pinned: 'left',
            lockPosition: true,
            field: columns[i],
-           headerName: 'Application',
+           headerName: 'App',
            minWidth: 190,
            maxWidth: 800,
            order: 1

@@ -47,7 +47,7 @@ export class VulnReportWorkflowComponent implements OnInit {
       },
       {
         title: 'MAP ASSETS TO APPLICATION',
-        leftTxt: ['\'Application\' Tag Available for Cloud Assets'],
+        leftTxt: ['\'App\' Tag Available for Cloud Assets'],
         rightTxt: '\'Business Service\' Field in \'Servers\' Table'
       },
       {

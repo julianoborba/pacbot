@@ -118,7 +118,7 @@ public class CheckApplicationTagRule extends BaseRule {
 		if (!resourceAttributes.isEmpty()) {
 			try {
 				if (StringUtils.isNullOrEmpty(resourceAttributes.get(PacmanRuleConstants.TAGS_APP))) {
-					issueDescription = "Application Tag does not exist";
+					issueDescription = "App Tag does not exist";
 					resourceCreatedDetails = PacmanUtils.getResourceCreatedDetails(reSourceId, eventType,heimdallURL);
 					createEventFound = (Boolean) resourceCreatedDetails.get("created_event_found");
 					if (createEventFound && null != (resourceCreatedDetails.get("OU"))) {
@@ -142,7 +142,7 @@ public class CheckApplicationTagRule extends BaseRule {
 							String ou = resourceCreatedDetails.get("OU").toString();
 							if (!PacmanUtils.checkAppTagMappedtoOUMatchesCurrentAppTag(ou, appTagURL,PacmanRuleConstants.APP_ID, appTag)) {
 								isApplicationTagExists = false;
-								issueDescription = reSourceId+ " Application Tag tagged incorrectly";
+								issueDescription = reSourceId+ " App Tag tagged incorrectly";
 								if (null != PacmanUtils.getAppTagMappedToOU(ou,appTagURL, PacmanRuleConstants.APP_ID)) {
 									appTagMappedtoOU = PacmanUtils.getAppTagMappedToOU(ou, appTagURL,PacmanRuleConstants.APP_ID);
 								}
@@ -158,7 +158,7 @@ public class CheckApplicationTagRule extends BaseRule {
 		}
 		if (!isApplicationTagExists) {
 			annotation = Annotation.buildAnnotation(ruleParam,Annotation.Type.ISSUE);
-			annotation.put(PacmanSdkConstants.DESCRIPTION,"Application Tags value is not a valid!!");
+			annotation.put(PacmanSdkConstants.DESCRIPTION,"App Tags value is not a valid!!");
 			issue.put(PacmanRuleConstants.VIOLATION_REASON, issueDescription);
 			appTagDetails.put(PacmanSdkConstants.CURRENT_APP_TAG_KEY, appTag);
 			appTagDetails.put(PacmanSdkConstants.CORRECT_APP_TAG_KEY,appTagMappedtoOU);

@@ -76,7 +76,7 @@
                     [errorValue]="errorVal.tableStatus" 
                     (firstRowClick)="navigateTo(summaryActiveTab.category, $event)" 
                     [errorMessage]="errorMessage" 
-                    [clickableKeys]="['Application']" 
+                    [clickableKeys]="['App']" 
                     [keysToSkip]="['selectedKey']">
                 </app-table-list>
                 <div *ngIf='errorVal.tableStatus === 0' class='loader'></div>

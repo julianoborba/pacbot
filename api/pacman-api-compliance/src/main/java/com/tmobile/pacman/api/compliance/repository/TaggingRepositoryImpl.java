@@ -132,7 +132,7 @@ public class TaggingRepositoryImpl implements TaggingRepository, Constants {
                         + "},\"aggs\":{\"tags\":{\"filters\":{\"filters\":{");
 
         for (String tags : mandatoryTagsList) {
-            if (!"Application".equalsIgnoreCase(tags)) {
+            if (!"App".equalsIgnoreCase(tags)) {
                 requestBody.append("\"" + tags + "\""
                         + ":{\"bool\":{\"must\":[{\"match\":{\"missingTags\":"
                         + "\"" + tags + "\"" + "}}]}},");

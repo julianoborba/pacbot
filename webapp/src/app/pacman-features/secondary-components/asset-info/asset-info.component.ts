@@ -239,7 +239,7 @@ export class AssetInfoComponent implements OnInit, OnDestroy, OnChanges {
           queryParamsHandling: 'merge'
         });
       } else if (clickData.toLowerCase() === 'untagged') {
-        const eachParams = { 'tagged': false, 'resourceType': this.targetType, tagName: 'Application' };
+        const eachParams = { 'tagged': false, 'resourceType': this.targetType, tagName: 'App' };
         let newParams = this.utils.makeFilterObj(eachParams);
         newParams = Object.assign(newParams , apiTarget);
         this.router.navigate(['../../', 'assets', 'asset-list'], {

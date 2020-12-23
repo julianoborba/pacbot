@@ -83,7 +83,7 @@ public class DownloadControllerTest {
 				+ "\"EC2 instance should not have guard duty findings\",\"IssueId\":\"IssueId\","
 				+ "\"ResourceId\":\"ResourceId\",\"Severity\":\"high\",\"RuleCategory\":\"security\","
 				+ "\"AccountName\":\"AccountName\",\"AccountId\":\"AccountId\",\"Region\":\"Region\","
-				+ "\"Application\":\"Application\",\"Environment\":\"Environment\",\"CreatedOn\":"
+				+ "\"App\":\"App\",\"Env\":\"Env\",\"CreatedOn\":"
 				+ "\"2018-07-06T18:23:15.486Z\",\"ModifiedOn\":\"2018-07-10T06:23:33.911Z\","
 				+ "\"Status\":\"open\",\"resourcetType\":\"ec2\",\"description\":\"Guard Duty findings exists!!\","
 				+ "\"nonDisplayableAttributes\":{\"RuleId\":\"RuleId\","

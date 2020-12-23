@@ -490,7 +490,7 @@ public interface PacmanSdkConstants extends com.tmobile.pacman.commons.PacmanSdk
     String SEND_EMAIL_EXEMPTED_SUBJECT = "pacman.exempted.mail.subject";
 
     /** application tag name*. */
-    String APPLICATION_TAG_NAME = "Application";
+    String APPLICATION_TAG_NAME = "App";
 
 
     /** The target type alias. */

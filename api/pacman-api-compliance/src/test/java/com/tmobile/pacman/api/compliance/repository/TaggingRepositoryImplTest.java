@@ -86,7 +86,7 @@ public class TaggingRepositoryImplTest {
                 elasticSearchRepository.getTotalDistributionForIndexAndTypeWithMatchPhrase(anyString(), anyString(),
                         anyObject(), anyObject(), anyObject(), anyString(), anyObject(), anyObject()))
                 .thenReturn(5000l);
-        untaggedAssets = taggingRepositoryImpl.getUntaggedIssues("aws-all", "Application,Environmnet");
+        untaggedAssets = taggingRepositoryImpl.getUntaggedIssues("aws-all", "App,Env");
         assertTrue(untaggedAssets > 0);
         // check mandatory tags empty scenario
         untaggedAssets = taggingRepositoryImpl.getUntaggedIssues("aws-all", null);
@@ -96,7 +96,7 @@ public class TaggingRepositoryImplTest {
                 elasticSearchRepository.getTotalDistributionForIndexAndTypeWithMatchPhrase(anyString(), anyString(),
                         anyObject(), anyObject(), anyObject(), anyString(), anyObject(), anyObject())).thenThrow(
                 new DataException());
-        assertThatThrownBy(() -> taggingRepositoryImpl.getUntaggedIssues("aws-all", "Application,Environmnet"))
+        assertThatThrownBy(() -> taggingRepositoryImpl.getUntaggedIssues("aws-all", "App,Env"))
                 .isInstanceOf(DataException.class);
         taggingRepositoryImpl.init();
     }
@@ -142,9 +142,9 @@ public class TaggingRepositoryImplTest {
     @Test
     public void getUntaggedIssuesByapplicationFromESTest() throws Exception {
         JsonArray untaggedIsuueByApp;
-        String response = "{\"took\":1660,\"timed_out\":false,\"_shards\":{\"total\":176,\"successful\":176,\"failed\":0},\"hits\":{\"total\":58839,\"max_score\":0.0,\"hits\":[]},\"aggregations\":{\"apps\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":0,\"buckets\":[{\"key\":\"My-TMO\",\"doc_count\":3062,\"tags\":{\"buckets\":{\"Environment\":{\"doc_count\":154},\"Role\":{\"doc_count\":677},\"Stack\":{\"doc_count\":3052}}}},{\"key\":\"Layer3\",\"doc_count\":1897,\"tags\":{\"buckets\":{\"Environment\":{\"doc_count\":1784},\"Role\":{\"doc_count\":1896},\"Stack\":{\"doc_count\":1263}}}}]}}}";
+        String response = "{\"took\":1660,\"timed_out\":false,\"_shards\":{\"total\":176,\"successful\":176,\"failed\":0},\"hits\":{\"total\":58839,\"max_score\":0.0,\"hits\":[]},\"aggregations\":{\"apps\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":0,\"buckets\":[{\"key\":\"My-TMO\",\"doc_count\":3062,\"tags\":{\"buckets\":{\"Env\":{\"doc_count\":154},\"Role\":{\"doc_count\":677},\"Stack\":{\"doc_count\":3052}}}},{\"key\":\"Layer3\",\"doc_count\":1897,\"tags\":{\"buckets\":{\"Env\":{\"doc_count\":1784},\"Role\":{\"doc_count\":1896},\"Stack\":{\"doc_count\":1263}}}}]}}}";
         mockStatic(PacHttpUtils.class);
-        String mandatoryTags = "Application,env";
+        String mandatoryTags = "App,env";
         when(PacHttpUtils.doHttpPost(anyString(), anyString())).thenReturn(response);
         ReflectionTestUtils.setField(taggingRepositoryImpl, "esUrl", "dummyEsURL");
         untaggedIsuueByApp = taggingRepositoryImpl.getUntaggedIssuesByapplicationFromES("aws-all", mandatoryTags,
