@@ -176,7 +176,7 @@ export class RecommandCategoryComponent implements OnInit, OnChanges, OnDestroy 
             };
             if (this.filters['tags.App.keyword']) {
               downloadRequest['filter']['application'] = this.filters['tags.App.keyword'];
-            } else if (this.filters['filter'] && this.filters['filter'].includes('App')) {
+            } else if (this.filters['filter'] && this.filters['filter'].includes('Application')) {
                 let arr = [];
                 arr = this.filters.filter.split('=');
                 downloadRequest['filter']['application'] = arr.length > 1 ? arr[1] : '';
@@ -222,7 +222,7 @@ export class RecommandCategoryComponent implements OnInit, OnChanges, OnDestroy 
     };
     if (this.filters['tags.App.keyword']) {
       queryParam['filter']['application'] = this.filters['tags.App.keyword'];
-    } else if (this.filters['filter'] && this.filters['filter'].includes('App')) {
+    } else if (this.filters['filter'] && this.filters['filter'].includes('Application')) {
         let arr = [];
         arr = this.filters.filter.split('=');
         queryParam['filter']['application'] = arr.length > 1 ? arr[1] : '';

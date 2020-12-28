@@ -168,7 +168,7 @@ export class DevPullRequestApplicationsComponent implements OnInit, OnDestroy, O
            pinned: 'left',
            lockPosition: true,
            field: columns[i],
-           headerName: 'App',
+           headerName: 'Application',
            minWidth: 190,
            maxWidth: 800,
            order: 1

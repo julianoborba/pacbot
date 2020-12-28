@@ -109,8 +109,8 @@ public interface Constants {
     String POLICY_DISPLAY_ID = "PolicyId";
     String ISSUE_ID = "IssueId";
     String RESOURCE_DISPLAY_ID = "ResourceId";
-    String APPLICATION = "App";
-    String ENVIRONMENT = "Env";
+    String APPLICATION = "Application";
+    String ENVIRONMENT = "Environment";
     String REGION_DISPALY_NAME = "Region";
     String SEVERITY_DISPALY_NAME = "Severity";
     String RULECATEGORY_DISPALY_NAME = "RuleCategory";
